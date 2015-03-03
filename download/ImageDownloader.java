@@ -12,6 +12,9 @@ import android.graphics.BitmapFactory;
 import android.net.http.AndroidHttpClient;
 import android.util.Log;
 
+/**
+ * 图片下载器
+ * */
 public class ImageDownloader implements Downloader {
 
 	@Override

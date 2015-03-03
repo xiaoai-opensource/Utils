@@ -1,12 +1,10 @@
 package com.example.test2.download;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Handler;
 
 /**
- * ͼƬ����
+ * 异步下载任务
  * */
 public class ImageLoadTask extends AsyncTask<String, Integer, Bitmap> {
 
@@ -39,6 +37,9 @@ public class ImageLoadTask extends AsyncTask<String, Integer, Bitmap> {
 		mOnPost = onPost;
 	}
 	
+	/**
+	 * 下载完成后的调用接口
+	 * */
 	public interface IOnPost{
 		public void onPostExecute(String url,Bitmap result);
 	}

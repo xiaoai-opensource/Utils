@@ -1,7 +1,7 @@
 package com.example.test2.download;
 
 /**
- * ÏÂÔØÆ÷
+ * ä¸‹è½½å™¨
  * */
 public interface Downloader {
 	public Object download(String url);
