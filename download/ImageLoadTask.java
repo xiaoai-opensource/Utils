@@ -1,5 +1,8 @@
 package com.example.test2.download;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 
@@ -8,7 +11,18 @@ import android.os.AsyncTask;
  * */
 public class ImageLoadTask extends AsyncTask<String, Integer, Bitmap> {
 
-	private IOnPost mOnPost;
+	private List<IOnPost> onPostList = new ArrayList<ImageLoadTask.IOnPost>();
+	private String urls[];
+	
+	
+	public String[] getUrls() {
+		return urls;
+	}
+
+	public void setUrls(String... urls) {
+		this.urls = urls;
+	}
+
 	String url = "";
 	
 	@Override
@@ -27,14 +41,15 @@ public class ImageLoadTask extends AsyncTask<String, Integer, Bitmap> {
 	@Override
 	protected void onPostExecute(Bitmap result) {
 		super.onPostExecute(result);
-		if(mOnPost!=null){
-			mOnPost.onPostExecute(url,result);
-		}
+			for(int i=0;i<onPostList.size();i++){
+				onPostList.get(i).onPostExecute(url,result);
+				
+			}
 
 	}
 	
-	public void setOnPost(IOnPost onPost){
-		mOnPost = onPost;
+	public void addOnPostListener(IOnPost onPost){
+		onPostList.add(onPost);
 	}
 	
 	/**
