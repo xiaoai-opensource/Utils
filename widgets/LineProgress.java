@@ -29,9 +29,9 @@ public class LineProgress extends View {
 	Rect completeRect = new Rect();		//完成区域
 	Rect unCompleteRect = new Rect();	//未完成区域
 
-	String percentText;		//百分比内容
+	String percentText="0%";		//百分比内容
 
-	final int TEXT_PADDING = 10;	//显示字体左右padding大小
+	final int TEXT_PADDING = 4;	//显示字体左右padding大小
 	final int MIN_HEIGHT = 11;		//最低高度
 	final int LINE_HEIGHT = 3;		//线的高度
 
@@ -89,18 +89,18 @@ public class LineProgress extends View {
 
 
 	}
-	
+
 	/**
 	 * 初始化画笔
 	 * */
 	private void initPaint(){
 		completePaint = new Paint();
-		completePaint.setARGB(255, 255, 0, 0);
-		completePaint.setStrokeWidth(2);
+		completePaint.setARGB(255, 0, 255, 0);
+		completePaint.setStrokeWidth(4);
 
 		unCompletePaint = new Paint();
-		unCompletePaint.setARGB(255, 0, 255, 0);
-		unCompletePaint.setStrokeWidth(2);
+		unCompletePaint.setARGB(255, 255, 0, 0);
+		unCompletePaint.setStrokeWidth(4);
 
 		textPaint = new Paint();
 		textPaint.setARGB(255, 0, 0, 255);
